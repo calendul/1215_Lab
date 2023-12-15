@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #button1 {
+            background-color: #3498db; /* Blue */
+            color: #fff;
+        }
+
+        #button2 {
+            background-color:#e74c3c; /* Red */
+            color: #fff
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+    <script>
+        function getFirstInput() {
+        var firstInput = prompt("Please enter the first integer:");
+        // Validate if the input is a valid integer
+        if (firstInput !== null && !isNaN(firstInput && firstInput !== "")) {
+        return parseInt(firstInput);
+        } else {
+        alert("Invalid input. Please enter a valid integer.");
+        return getFirstInput();
+        }
+    }
+
+  // Function to prompt the user for the second integer
+        function getSecondInput() {
+            var secondInput = prompt("Please enter the second integer:");
+            // Validate if the input is a valid integer
+            if (secondInput !== null && !isNaN(secondInput) && secondInput !== "") {
+            return parseInt(secondInput);
+            } else {
+            alert("Invalid input. Please enter a valid integer.");
+            return getSecondInput();
+            }
+        }
+
+        function compareAndDisplay(firstInput, secondInput) {
+            if (firstInput > secondInput) {
+                document.body.style.backgroundColor = "lightblue";
+                document.write(firstInput + " > " + secondInput);
+            } else if (secondInput > firstInput) {
+                document.body.style.backgroundColor = "orange";
+                document.write(secondInput + " > " + firstInput);
+            } else {
+                document.body.style.backgroundColor = "lightyellow";
+                document.write(secondInput + " == " + firstInput);
+            }
+        }
+
+        function showFirstInput() {
+            alert("First Input: " + firstInput);
+        }
+
+        function showSecondInput() {
+            alert("Second Input: " + secondInput);
+        }
+    </script>
+    
+</head>
+<body>
+
+    <button id="button1" class="button" onclick="showFirstInput(firstInput)">1st Input</button>
+    <button id="button2" class="button" onclick="showSecondInput(secondInput)">2nd Input</button>
+
+    <script>
+        var firstInput = getFirstInput();
+        var secondInput = getSecondInput();
+        compareAndDisplay(firstInput, secondInput);
+    </script>
+</body>
+</html>
